@@ -32,9 +32,53 @@ bin/kafka-server-start.sh config/kraft/server.properties
 bin/kafka-topics.sh --create --topic retail_transactions --bootstrap-server localhost:9092 
 ```
 
-### Start a producer
+### Start  producer
 ```bash
-bin/kafka-console-producer.sh --topic retail_transactions --bootstrap-server localhost:9092 
+python producer.py
+```
+
+## Create table in Click house 
+```sql
+CREATE OR REPLACE TABLE retail_transactions
+(
+    CustomerID UInt32,
+    ProductID String,
+    Quantity UInt32,
+    Price UInt32,
+    TransactionDate DateTime,
+    PaymentMethod String,
+    Street String,
+    City Nullable(String),
+    State Nullable(String),
+    ZipCode Nullable(UInt32),
+    ProductCategory String,
+    DiscountAppliedPercent Float32,
+    TotalAmount Float32
+)
+ENGINE = MergeTree
+PARTITION BY toYYYYMM(TransactionDate)
+ORDER BY (ProductID, TransactionDate);
+
+
+CREATE OR REPLACE TABLE historical_retail_transactions
+(
+    CustomerID UInt32,
+    ProductID String,
+    Quantity UInt32,
+    Price UInt32,
+    TransactionDate DateTime,
+    PaymentMethod String,
+    Street String,
+    City Nullable(String),
+    State Nullable(String),
+    ZipCode Nullable(UInt32),
+    ProductCategory String,
+    DiscountAppliedPercent Float32,
+    TotalAmount Float32
+)
+ENGINE = MergeTree
+PARTITION BY toYYYYMM(TransactionDate)
+ORDER BY (ProductID, TransactionDate);
 ```
 
 ## Spark streaming job submit 
