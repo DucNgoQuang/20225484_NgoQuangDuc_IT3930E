@@ -14,7 +14,7 @@ This repository contain the source code for Project 2 (IT3930E) at HUST
 
 ## System architecture
 
-<img src='asset/Project 2.png' alt='System architecture' width="500" height="300"> 
+<img src='asset/Project 2.png' alt='System architecture' > 
 
 ## Install required libraries
 ```bash
