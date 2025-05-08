@@ -1,3 +1,2 @@
-data node 
 namenode : 9871
 connection string : hdfs://<namenode_host>:<namenode_port>

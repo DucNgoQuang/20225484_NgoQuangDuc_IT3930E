@@ -16,4 +16,4 @@ CREATE OR REPLACE TABLE retail_transactions
 )
 ENGINE = MergeTree
 PARTITION BY toYYYYMM(TransactionDate)
-ORDER BY (CustomerID, TransactionDate);
+ORDER BY (ProductID, TransactionDate);

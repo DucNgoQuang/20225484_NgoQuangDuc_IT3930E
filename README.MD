@@ -1,7 +1,7 @@
 
-# 2024.2 IT3930E Project 2 
+# 2024.2 IT3930E Project 2 - Lambda architecture in Big Data management 
 
-This repository contain the source code for IT3930E at HUST
+This repository contain the source code for Project 2 (IT3930E) at HUST
 
 
 ## Prerequisites
@@ -11,6 +11,10 @@ This repository contain the source code for IT3930E at HUST
 - [Apache Spark](https://spark.apache.org/downloads.html)
 - [Clickhouse](https://clickhouse.com/docs/install)
 - [Apache Superset](https://superset.apache.org/)
+
+## System architecture
+
+<img src='asset/Project 2.png' alt='System architecture' width="500" height="300"> 
 
 ## Install required libraries
 ```bash
@@ -37,5 +41,5 @@ bin/kafka-console-producer.sh --topic retail_transactions --bootstrap-server loc
 ```bash
 spark-submit \
   --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.4,com.clickhouse:clickhouse-jdbc:0.4.6 \
-  spark_streaming.py
+  speed_layer/spark_streaming.py
 ```
